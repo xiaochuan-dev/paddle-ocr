@@ -2,8 +2,7 @@ import os
 import re
 import pandas as pd
 import numpy as np
-from utils import convert_list
-from main import ensure_file
+from utils import convert_list, ensure_file
 
 
 def check(s: str) -> bool:
