@@ -54,9 +54,10 @@ def ocr_f(filepath):
         
         result = ocr.predict(arr)
         
-        for res in result:
-            t = res["rec_texts"][0]
-            print(t)
+        with open('res.txt', 'w+', encoding="utf-8") as f:
+            for res in result:
+                t = res["rec_texts"][0]
+                f.write(f'{t}\n')
 
 if __name__ == '__main__':
     p = ensure_file(
