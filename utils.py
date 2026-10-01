@@ -2,6 +2,8 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 import ast
+import os
+from huggingface_hub import hf_hub_download
 
 def ensure_file(
     local_path: str,
