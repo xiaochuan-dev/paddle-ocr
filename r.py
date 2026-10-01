@@ -31,7 +31,7 @@ def re_f(filepath):
             labels.append(label)
     df = pd.DataFrame({
         "image": new_image,
-        "labels": labels
+        "label": labels
     })
 
     df.to_parquet(f"new_{filepath}", engine="pyarrow", compression="zstd")
