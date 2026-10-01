@@ -42,14 +42,13 @@ ocr = PaddleOCR(
 
 def ocr(filepath):
     df = pd.read_parquet(filepath)
-    H, W = 1024, 768
+    H, W = 40, 120
 
     for idx, row in df.iterrows():
         flat_list = row["image"]
         
-        arr = np.array(flat_list, dtype=np.uint8).reshape(H, W, 3)
+        arr = np.array(flat_list, dtype=np.uint8).reshape(H, W, 1)
         
-        # 传入 PaddleOCR
         result = ocr.predict(arr)
         
         for res in result:
