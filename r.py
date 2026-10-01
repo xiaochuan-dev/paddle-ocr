@@ -23,6 +23,7 @@ def re_f(filepath):
 
         label = lines[idx]
         if check(label):
+            label = label.replace(' ', '')
             flat_list = row["image"]
             new_image.append(flat_list)
             labels.append(label)
