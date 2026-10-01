@@ -34,6 +34,26 @@ def ensure_file(
     print(f"下载完成: {local_path}", flush=True)
     return local_path
 
+def show_gray_image(H, W):
+    with open('./a.txt', 'r') as f:
+        image_str = f.read()
+
+    pixels = ast.literal_eval(image_str)
+
+    arr = np.array(pixels, dtype=np.uint8).reshape(H, W)
+
+    plt.figure(figsize=(12, 4))
+    plt.imshow(arr, cmap="gray", vmin=0, vmax=255)
+    plt.axis("off")
+    plt.show()
+
+def save_gray_image(image_str, H, W, output_path):
+    pixels = ast.literal_eval(image_str)
+
+    arr = np.array(pixels, dtype=np.uint8).reshape(H, W)
+
+    image = Image.fromarray(arr, mode="L")
+    image.save(output_path)
 
 def show_rgb_image(H, W):
     with open('./a.txt', 'r') as f:
