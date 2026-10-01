@@ -3,6 +3,7 @@ import re
 import pandas as pd
 import numpy as np
 from utils import convert_list
+from main import ensure_file
 
 
 def check(s: str) -> bool:
@@ -38,5 +39,10 @@ def re_f(filepath):
 
 
 if __name__ == '__main__':
+    p = ensure_file(
+        './sichuan_gaokao.parquet',
+        'xiaochuan-dev/captcha-new',
+        'sichuan_gaokao.parquet'
+    )
    
     re_f('sichuan_gaokao.parquet')
