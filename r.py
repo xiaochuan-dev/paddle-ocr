@@ -6,7 +6,7 @@ def re():
 
 
     with open('res.txt', 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+        lines = f.read().splitlines()
     print(lines)
     df = pd.read_parquet(filepath)
     H, W = 40, 120
