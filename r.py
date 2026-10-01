@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 import numpy as np
 
@@ -6,7 +7,7 @@ def check(s: str) -> bool:
     s = s.replace(' ', '')
     return bool(re.fullmatch(r'[A-Za-z0-9]{4}', s))
 
-def re(filepath):
+def re_f(filepath):
 
 
     with open('res.txt', 'r', encoding='utf-8') as f:
@@ -35,4 +36,4 @@ def re(filepath):
 
 if __name__ == '__main__':
    
-    re('sichuan_gaokao.parquet')
+    re_f('sichuan_gaokao.parquet')
