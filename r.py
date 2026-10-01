@@ -2,6 +2,8 @@ import os
 import re
 import pandas as pd
 import numpy as np
+from utils import convert_list
+
 
 def check(s: str) -> bool:
     s = s.replace(' ', '')
@@ -25,7 +27,7 @@ def re_f(filepath):
         if check(label):
             label = label.replace(' ', '').lower()
             flat_list = row["image"]
-            new_image.append(flat_list)
+            new_image.append(convert_list(flat_list))
             labels.append(label)
     df = pd.DataFrame({
         "image": new_image,
