@@ -47,7 +47,10 @@ def ocr_f(filepath):
     for idx, row in df.iterrows():
         flat_list = row["image"]
         
-        arr = np.array(flat_list, dtype=np.uint8).reshape(H, W, 1)
+        # arr = np.array(flat_list, dtype=np.uint8).reshape(H, W, 3)
+
+        arr = np.array(flat_list, dtype=np.uint8).reshape(H, W)
+        arr = np.stack([arr, arr, arr], axis=-1)
         
         result = ocr.predict(arr)
         
