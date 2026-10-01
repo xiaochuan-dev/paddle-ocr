@@ -95,4 +95,4 @@ def convert_list(flat_list):
     img = Image.fromarray(arr, mode="L")
 
     new_img = resize_keep_ratio_pad(img, 32, 128)
-    return np.array(img, dtype=np.uint8).flatten().tolist()
+    return np.array(new_img, dtype=np.uint8).flatten().tolist()
