@@ -5,7 +5,7 @@ import numpy as np
 def re():
 
 
-    with open('file.txt', 'r', encoding='utf-8') as f:
+    with open('res.txt', 'r', encoding='utf-8') as f:
         lines = f.readlines()
     print(lines)
     df = pd.read_parquet(filepath)
