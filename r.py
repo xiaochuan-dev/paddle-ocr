@@ -2,12 +2,16 @@ import os
 import pandas as pd
 import numpy as np
 
-def re():
+def check(s: str) -> bool:
+    s = s.replace(' ', '')
+    return bool(re.fullmatch(r'[A-Za-z0-9]{4}', s))
+
+def re(filepath):
 
 
     with open('res.txt', 'r', encoding='utf-8') as f:
         lines = f.read().splitlines()
-    print(lines)
+
     df = pd.read_parquet(filepath)
     H, W = 40, 120
 
@@ -15,8 +19,20 @@ def re():
     labels = []
 
     for idx, row in df.iterrows():
-        flat_list = row["image"]
+
+        label = lines[idx]
+        if check(label):
+            flat_list = row["image"]
+            new_image.append(flat_list)
+            labels.append(label)
+    df = pd.DataFrame({
+        "image": new_image,
+        "labels": labels
+    })
+
+    df.to_parquet(f"new_{filepath}", engine="pyarrow", compression="zstd")
+
 
 if __name__ == '__main__':
    
-    re()
+    re('sichuan_gaokao.parquet')
