@@ -90,7 +90,7 @@ def convert_list(flat_list):
     width = 120
     height = 40
 
-    arr = np.array(res, dtype=np.uint8).reshape(height, width)
+    arr = np.array(flat_list, dtype=np.uint8).reshape(height, width)
 
     img = Image.fromarray(arr, mode="L")
 
