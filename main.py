@@ -55,7 +55,8 @@ def ocr_f(filepath):
         result = ocr.predict(arr)
         
         for res in result:
-            res.print()
+            t = res["rec_texts"][0]
+            print(t)
 
 if __name__ == '__main__':
     p = ensure_file(
