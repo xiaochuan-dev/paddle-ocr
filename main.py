@@ -38,6 +38,7 @@ ocr = PaddleOCR(
     use_doc_unwarping=False,
     use_textline_orientation=False,
     engine="paddle",
+    device="gpu",
 )
 
 def ocr_f(filepath):
