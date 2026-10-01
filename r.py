@@ -19,4 +19,4 @@ def re():
 
 if __name__ == '__main__':
    
-    re(p)
+    re()
