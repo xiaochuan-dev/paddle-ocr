@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 from paddleocr import PaddleOCR
 from huggingface_hub import hf_hub_download
 
