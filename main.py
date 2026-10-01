@@ -40,7 +40,7 @@ ocr = PaddleOCR(
     engine="paddle",
 )
 
-def ocr(filepath):
+def ocr_f(filepath):
     df = pd.read_parquet(filepath)
     H, W = 40, 120
 
@@ -60,4 +60,4 @@ if __name__ == '__main__':
         'xiaochuan-dev/captcha-new',
         'sichuan_gaokao.parquet'
     )
-    ocr(p)
+    ocr_f(p)
