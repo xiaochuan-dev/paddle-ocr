@@ -5,9 +5,9 @@ import numpy as np
 from utils import convert_list, ensure_file
 from config import *
 
-def check(s: str) -> bool:
-    s = s.replace(' ', '')
-    return bool(re.fullmatch(r'[A-Za-z0-9]{4}', s))
+# def check(s: str) -> bool:
+#     s = s.replace(' ', '')
+#     return bool(re.fullmatch(r'[A-Za-z0-9]{4}', s))
 
 def re_f(filepath):
 
@@ -23,7 +23,7 @@ def re_f(filepath):
     for idx, row in df.iterrows():
 
         label = lines[idx]
-        if check(label):
+        if True:
             label = label.replace(' ', '').lower()
             flat_list = row["image"]
             new_image.append(convert_list(flat_list))

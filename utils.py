@@ -69,6 +69,13 @@ def show_rgb_image():
     plt.axis("off")
     plt.show()
 
+def save_rgb_image(image_str, output_path):
+    pixels = ast.literal_eval(image_str)
+
+    arr = np.array(pixels, dtype=np.uint8).reshape(H, W, 3)
+
+    image = Image.fromarray(arr, mode="RGB")
+    image.save(output_path)
 
 def resize_keep_ratio_pad(
     img: Image.Image,
