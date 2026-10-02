@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import ast
 import os
 from huggingface_hub import hf_hub_download
+from config import *
+
 
 def ensure_file(
     local_path: str,
@@ -34,7 +36,7 @@ def ensure_file(
     print(f"下载完成: {local_path}", flush=True)
     return local_path
 
-def show_gray_image(H, W):
+def show_gray_image():
     with open('./a.txt', 'r') as f:
         image_str = f.read()
 
@@ -47,7 +49,7 @@ def show_gray_image(H, W):
     plt.axis("off")
     plt.show()
 
-def save_gray_image(image_str, H, W, output_path):
+def save_gray_image(image_str, output_path):
     pixels = ast.literal_eval(image_str)
 
     arr = np.array(pixels, dtype=np.uint8).reshape(H, W)
@@ -55,7 +57,7 @@ def save_gray_image(image_str, H, W, output_path):
     image = Image.fromarray(arr, mode="L")
     image.save(output_path)
 
-def show_rgb_image(H, W):
+def show_rgb_image():
     with open('./a.txt', 'r') as f:
         image_str = f.read()
     pixels = ast.literal_eval(image_str)
@@ -107,8 +109,8 @@ def resize_keep_ratio_pad(
     return canvas
 
 def convert_list(flat_list):
-    width = 138
-    height = 48
+    width = W
+    height = H
 
     arr = np.array(flat_list, dtype=np.uint8).reshape(height, width, 3)
 

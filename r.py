@@ -3,7 +3,7 @@ import re
 import pandas as pd
 import numpy as np
 from utils import convert_list, ensure_file
-
+from config import *
 
 def check(s: str) -> bool:
     s = s.replace(' ', '')
@@ -16,7 +16,6 @@ def re_f(filepath):
         lines = f.read().splitlines()
 
     df = pd.read_parquet(filepath)
-    H, W = 48, 138
 
     new_image = []
     labels = []
