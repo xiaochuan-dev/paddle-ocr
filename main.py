@@ -43,15 +43,15 @@ ocr = PaddleOCR(
 
 def ocr_f(filepath):
     df = pd.read_parquet(filepath)
-    H, W = 40, 120
+    H, W = 48, 138
 
     for idx, row in df.iterrows():
         flat_list = row["image"]
         
-        # arr = np.array(flat_list, dtype=np.uint8).reshape(H, W, 3)
+        arr = np.array(flat_list, dtype=np.uint8).reshape(H, W, 3)
 
-        arr = np.array(flat_list, dtype=np.uint8).reshape(H, W)
-        arr = np.stack([arr, arr, arr], axis=-1)
+        # arr = np.array(flat_list, dtype=np.uint8).reshape(H, W)
+        # arr = np.stack([arr, arr, arr], axis=-1)
         
         result = ocr.predict(arr)
         
@@ -62,8 +62,8 @@ def ocr_f(filepath):
 
 if __name__ == '__main__':
     p = ensure_file(
-        './sichuan_gaokao.parquet',
+        'xinanjiaotong.parquet',
         'xiaochuan-dev/captcha-new',
-        'sichuan_gaokao.parquet'
+        'xinanjiaotong.parquet'
     )
     ocr_f(p)
