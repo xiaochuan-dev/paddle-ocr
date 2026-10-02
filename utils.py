@@ -110,9 +110,9 @@ def convert_list(flat_list):
     width = 138
     height = 48
 
-    arr = np.array(flat_list, dtype=np.uint8).reshape(height, width)
+    arr = np.array(flat_list, dtype=np.uint8).reshape(height, width, 3)
 
-    img = Image.fromarray(arr, mode="L")
+    img = Image.fromarray(arr, mode="RGB")
 
     new_img = resize_keep_ratio_pad(img, 32, 128)
     return np.array(new_img, dtype=np.uint8).flatten().tolist()
