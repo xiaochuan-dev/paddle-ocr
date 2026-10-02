@@ -39,7 +39,7 @@ def re_f(filepath):
 
 if __name__ == '__main__':
     p = ensure_file(
-        './data/xinanjiaotong.parquet',
+        'xinanjiaotong.parquet',
         'xiaochuan-dev/captcha-new',
         'xinanjiaotong.parquet'
     )
