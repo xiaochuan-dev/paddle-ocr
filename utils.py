@@ -107,8 +107,8 @@ def resize_keep_ratio_pad(
     return canvas
 
 def convert_list(flat_list):
-    width = 120
-    height = 40
+    width = 138
+    height = 48
 
     arr = np.array(flat_list, dtype=np.uint8).reshape(height, width)
 

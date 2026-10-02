@@ -16,7 +16,7 @@ def re_f(filepath):
         lines = f.read().splitlines()
 
     df = pd.read_parquet(filepath)
-    H, W = 40, 120
+    H, W = 48, 138
 
     new_image = []
     labels = []
@@ -39,9 +39,9 @@ def re_f(filepath):
 
 if __name__ == '__main__':
     p = ensure_file(
-        './sichuan_gaokao.parquet',
+        './data/xinanjiaotong.parquet',
         'xiaochuan-dev/captcha-new',
-        'sichuan_gaokao.parquet'
+        'xinanjiaotong.parquet'
     )
    
-    re_f('sichuan_gaokao.parquet')
+    re_f(p)
